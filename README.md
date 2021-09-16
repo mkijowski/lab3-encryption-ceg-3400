@@ -37,8 +37,15 @@ Names of teammates:
   command and output
   ```
 * Why does `/etc/shadow` have the permissions that it does?
-* How did you accomplish this task.  Be thorough in your response,
-  document how you tested that it indeed worked.
+* How did you accomplish this task?  IF you updated any of the files above
+  (`/etc/passwd` or `/etc/group`) paste the relevant lines here.  
+  ```
+  output of ls -lah /home
+  also paste any file names and changed lines here
+  ```
+  Be thorough in your response, explain how given the above output and 
+  a listing of commands run I can know for certain that your user can 
+  access other users' files.
 
 ---
 

@@ -90,7 +90,7 @@ Lets lock some things down.
 * Check the permissions on each users home directory `~` (their username folder in `/home`)
 * Change each users' home directory (and all contents of) permissions so only the file owner (`u`) and file group (`g`) can read/write/execute files.
 * Check the permissions on `/etc/shadow`
-* Using standard linux file permissions, allow ***just one*** of your group members read only access to your home directory.
+* Using standard linux file permissions, allow ***your user***  read access to your teammates local home directories.
 
 ---
 
