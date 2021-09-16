@@ -3,7 +3,7 @@
 ### Authentication and Permissions
 
 Table of contents:
-* [Background]()
+* [Background](Lab2-Instructions.md#background)
 * [Objectives]()
 * [Preparation]()
 * [Task 1: Account Setup]()
