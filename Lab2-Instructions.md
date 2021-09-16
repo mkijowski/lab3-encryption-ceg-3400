@@ -115,8 +115,10 @@ The SetUID and SetGID bits can be tricky to think about.  Check out the
 Crack those passwords!  More information will come next week with the 
 condensed shadow file.
 
-I have provided 3 wordlist files in `/wordlists`, you will need to extract
+I have provided 2 wordlist files in `/wordlists`, you will need to extract
 them as two are quite large (use `gunzip`).
+
+Download a third [from weakpass here.](https://weakpass.com/wordlist/1256)
 
 You can try to figure out the graphical interface of hashcat or just run
 it from the command line:
