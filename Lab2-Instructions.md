@@ -9,6 +9,7 @@ Table of contents:
 * [Task 1: Account Setup](Lab2-Instructions.md#task-1---users)
 * [Task 2: Permissions Issues](Lab2-Instructions.md#task-2---permissions-issues)
 * [Task 3: Advanced Permissions Issues](Lab2-Instructions.md#task-3---hashcat)
+* [Task 4: Hashcat](Lab2-Instructions.md#task-4---hashcat)
 
 ---
 
