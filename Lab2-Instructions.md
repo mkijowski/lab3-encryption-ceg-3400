@@ -4,11 +4,11 @@
 
 Table of contents:
 * [Background](Lab2-Instructions.md#background)
-* [Objectives]()
-* [Preparation]()
-* [Task 1: Account Setup]()
-* [Task 2: Permissions Issues]()
-* [Task 3: Advanced Permissions Issues]()
+* [Objectives](Lab2-Instructions.md#objectives)
+* [Preparation](Lab2-Instructions.md#preparation)
+* [Task 1: Account Setup](Lab2-Instructions.md#task-1---users)
+* [Task 2: Permissions Issues](Lab2-Instructions.md#task-2---permissions-issues)
+* [Task 3: Advanced Permissions Issues](Lab2-Instructions.md#task-3---hashcat)
 
 ---
 
@@ -36,6 +36,32 @@ Students should become familiar with the following:
 * File permissions in linux
 * Special file permissions in linux
 * cracking passwords
+
+---
+
+#### Preparation
+
+You will need the AWS virtual space for this lab.  First, setup your AWS
+Educate account and perform the following actions. Contact me via email 
+or discord if you do not have your AWS Educate invite email.
+
+Each student should only have one copy of this stack at a time.  If you
+have already deployed this stack you can use that one.
+
+* From AWS Educate classroom access the CEG3400 course *AWS Console* (make sure
+  you are signed in as a vocstartsoft user in the top right)
+* [Create an SSH public/private key
+  pair](https://console.aws.amazon.com/ec2/v2/home?region=us-east-1#KeyPairs:) for this course (`.pem` NOT putty!)
+* Click [this cloudformation link](https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/new?stackName=ceg3400Lab1&templateURL=https:%2F%2Fwsu-cecs-cf-templates.s3.us-east-2.amazonaws.com%2Fcourse-templates%2Fceg3400-mek.yml)
+  to deploy your stack
+* Identify the IP address of the running EC2 instance created [in the EC2
+  page](https://console.aws.amazon.com/ec2/v2/home?region=us-east-1)
+* Connect with the following string: `ssh -i /path/to/keyfile ubuntu@<IP
+  ADDRESS>`
+
+  for example: `ssh -i /home/mkijowski/Downloads/ceg3400.pem
+  ubuntu@123.245.246.247`
+
 
 ---
 
