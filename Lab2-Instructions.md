@@ -80,8 +80,9 @@ key provided in class, encrypt this file (the `Lab2-Instructions.md` file.).
 
 Name this file `task2.enc`.  Answer all task 2 questions in the `README.md`.
 
-Hints: use the `gpg --encrypt --recipient` command.  I am intentionally not giving the 
-full command so you can play around with `gpg`, you might need to use the `man` command.
+Hints: To *encrypt* a message or file using `gpg` you need to specify a *recipient* email 
+address that you have the corresponding public key.  I am intentionally not giving the 
+full command so you can play around with `gpg`, you might need to use the `man` command (and/or google).
 
 ---
 
