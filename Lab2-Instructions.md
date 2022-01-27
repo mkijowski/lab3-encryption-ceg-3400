@@ -1,137 +1,95 @@
 ## Lab 2 : CEG 3400
 
-### Authentication and Permissions
+### Encryption
 
 Table of contents:
 * [Background](Lab2-Instructions.md#background)
 * [Objectives](Lab2-Instructions.md#objectives)
 * [Preparation](Lab2-Instructions.md#preparation)
-* [Task 1: Account Setup](Lab2-Instructions.md#task-1---users)
-* [Task 2: Permissions Issues](Lab2-Instructions.md#task-2---permissions-issues)
-* [Task 3: Advanced Permissions Issues](Lab2-Instructions.md#task-3---hashcat)
-* [Task 4: Hashcat](Lab2-Instructions.md#task-4---hashcat)
+* [Task 1: Symmetric Encryption](Lab2-Instructions.md#task-1---symmetric-encryption)
+* [Task 2: Asymmetric Encryption](Lab2-Instructions.md#task-2---asymmetric-encryption)
+* [Task 3: Digital Signatures](Lab2-Instructions.md#task-3---digital-signatures)
 
 ---
 
 #### Background
 
-Setting up accounts on a system can be a difficult task to do securely.  
-In part one students will work in groups of 3 to setup multiple users on your 
-VM.  Students will extract information from this virtual machine and document 
-the process.
-
-Parts 2 and 3 will involve checking and changing file permissions.
-
-Part 4 will have students attempting to attack the weak passwords they 
-created in part 1.
+Encryption is a basic tool for securing data at rest and data being sent across unsecure 
+channels.
 
 ---
 
 #### Objectives
 
-Students should become familiar with the following:
+Become familiar with several symmetric and asymmetric encryption protocols.
 
-* using encryption to secure communication within a team
-* following instructions
-* Standard authentication methods in linux
-* File permissions in linux
-* Special file permissions in linux
-* cracking passwords
+Analyze how well some encryption protocols secure data versus others.
 
 ---
 
 #### Preparation
 
-You will need the AWS virtual space for this lab.  First, setup your AWS
-Educate account and perform the following actions. Contact me via email 
-or discord if you do not have your AWS Educate invite email.
-
-Each student should only have one copy of this stack at a time.  If you
-have already deployed this stack you can use that one.
-
-* From AWS Educate classroom access the CEG3400 course *AWS Console* (make sure
-  you are signed in as a vocstartsoft user in the top right)
-* [Create an SSH public/private key
-  pair](https://console.aws.amazon.com/ec2/v2/home?region=us-east-1#KeyPairs:) for this course (`.pem` NOT putty!)
-* Click [this cloudformation link](https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/new?stackName=ceg3400Lab1&templateURL=https:%2F%2Fwsu-cecs-cf-templates.s3.us-east-2.amazonaws.com%2Fcourse-templates%2Fceg3400-mek.yml)
-  to deploy your stack
-* Identify the IP address of the running EC2 instance created [in the EC2
-  page](https://console.aws.amazon.com/ec2/v2/home?region=us-east-1)
-* Connect with the following string: `ssh -i /path/to/keyfile ubuntu@<IP
-  ADDRESS>`
-
-  for example: `ssh -i /home/mkijowski/Downloads/ceg3400.pem
-  ubuntu@123.245.246.247`
-
+These commands will likely need a full version of bash as found in WSL Ubutun or other 
+linux distro.  The default shell provided by MobaXTerm does not support several of the 
+needed programs.  Be sure you can run all needed commands before getting stuck 
+partway through ;)
 
 ---
 
-### Task 1 - Users
+### Task 1 - Symmetric Encryption
 
-Intended to be done in a team of 2-3, but a single person *could* perform
-all tasks.  ***All work should be done by each student***
+In this task you will encrypt a simple image using different encryption modes and analyze the 
+effectiveness of each mode.  A list of all the supported algorithms and modes are found in the
+`openssl` and `enc` man pages.
 
-* create a simple / insecure password you can share 
-  (one or two words, not much L337 speak)
-* create an SSH key pair
-* deploy the AWS stack for this lab
-* exchange passwords using gpg encryption (use the `--recipient` option)
-* create ***an account for each team member*** using the above
-* Back up the `/etc/shadow` file ***Submit this file to the pilot dropbox by next Thursday***
+Encrypt the `data/example_pic.bmp` file with the aes-128 algorithm using each of the following encryption modes 
+- `aes-128-cbc`, `aes-128-ecb`, and `aes-128-ofb` – total of 3 ciphertext files created.  Name the files `example_pic.cbc`, 
+`example_pic.ecb`, and `example_pic.ofb`.  Make up an easy to remember encryption password when 
+prompted (e.g. 12345).
 
-***Input needed in `README.md`***
+The general form of the encryption command is as follows:
 
----
+```
+openssl  <ALGORITHM_MODE>  -e  -in  <INPUT_FILE>   -out  <OUTPUT_FILE>
+```
 
-### Task 2 - Permissions
+When you encrypt these images, you also encrypt the header information needed to open them
+in an image viewer.
+In order to view the encrypted files you will need to recreate the standard header format
+of a `.bmp` file before an image viewer will recognize the encrypted data as an image.
 
-It appears someone on your system *might* have used an insecure password.
-Lets lock some things down.
+The needed header data is stored in the first 54 bytes of every `.bmp` file.  You can cut it out and 
+save it with the following command: `dd if=example_pic.bmp of=bmp_header.hex bs=1 count=54`
+but I did this already and provided the header data in `data/bmp_header.hex`.
 
-* Check the permissions on each users home directory `~` (their username folder in `/home`)
-* Change each users' home directory (and all contents of) permissions so only the file owner (`u`) and file group (`g`) can read/write/execute files.
-* Check the permissions on `/etc/shadow`
-* Using standard linux file permissions, allow ***your user***  read access to your teammates local home directories.
+To prepend this to your cypher text simply use the cat command as follows:
 
----
+```
+cat data/bmp_header.hex ./example_pic.ofb > ofb.bmp
+```
 
-### Task 3 - SetUID
-
-The SetUID and SetGID bits can be tricky to think about.  Check out the 
-`/code` provided to you in this lab.  Edit this as necessary to allow
-***ANY*** user on this system to list contents of your home directory 
-(using the executable generated by this code).
-
-* Edit the code as necessary and compile
-* Check ownership of this file
-* Set the SetUID bit of this file
-* Make sure others can read/execute this file
-* Verify your teammates have successfully performed this task
+Once you have done this with all three files open them in an image viewer and compare them to
+the original image and each other.  Write your finding in `README.md`
 
 ---
 
-### Task 4 - Hashcat
+### Task 2 - Asymmetric Encryption 
 
-Crack those passwords!  More information will come next week with the 
-condensed shadow file.
+This task is brand new this semester!  It's really simple, using the instructor's public
+key provided in class, encrypt this file (the `Lab2-Instructions.md` file.).
 
-I have provided 2 wordlist files in `/wordlists`, you will need to extract
-them as two are quite large (use `gunzip`).
+Name this file `task2.enc`.  Answer all task 2 questions in the `README.md`.
 
-Download a third [from weakpass here.](https://weakpass.com/wordlist/1256)
+Hints: use the `gpg --encrypt --recipient` command.  I am intentionally not giving the 
+full command so you can play around with `gpg`, you might need to use the `man` command.
 
-You can try to figure out the graphical interface of hashcat or just run
-it from the command line:
+---
 
-`hashcat-cli32.bin -m 1800 -a 0 -o hashcat.output --remove shadowfile wordlists/500_passwords.txt`
+### Task 3 - Digital Signatures
 
-The above may run if everything I get you is named correctly...
-* `-m 1800` is for cracking Unix type 6 hashed passwords (`$6` in the hash)
-* `-a 0` specifies a dictionary attack
-* output all foudn passwords to `hashcat.output`
-* `--remove` removes cracked hashes from the shadowfile (so we dont waste time when using the next wordlists)
-* get password hashes from `shadowfile`
-* using the dictionary file `wordlists/500_passwords.txt`
+For task 3 you will be applying a digital signature to your `README.md`.  This must be
+done AFTER you are done answering all questions (don't edit the `README.md` after signing)
+.  If you do need to edit `README.md` after you sign it, simply delete the signature at the end and re sign it.
 
-[Samsclass]: https://samsclass.info/123/proj10/p12-hashcat.htm
+Hint: There are multiple ways to digitally sign a document with `gpg`.  Use the `--clearsign` option.
 
