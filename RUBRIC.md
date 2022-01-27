@@ -4,49 +4,28 @@
 
 ```
 /10 commits
-/20 style
+/10 style
 ```
-
----
 
 ### Task1
-```
-/5 password
-/5 idrsa
-/10 password.gpg (3, it exists and 7, I can decrypt it)
-/10 JUST the relevant lines to show users & groups were created correctly
-```
 
----
+```
+/15  3 encrypted files
+/10 description
+/10 infer and algorithm explanation
+```
 
 ### Task2
 
 ```
-/5 permissions
-/5 command
-/5 shadow
-/10 why permissions shadow
-/20 explain
+/20 task2.enc
+/10 questions
 ```
-
----
 
 ### Task3
 
 ```
-/5 compiled file in `/code`
-/5 permissions on file
-/5 command
-/20 teammates verification
+/20 digital signature
+/10 questions
 ```
 
----
-
-### Task4
-
-```
-/15 how many passwords did you crack
-/5 hashcat.output
-/10 how to crack all of the passwords
-/10 Analysis
-```
