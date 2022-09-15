@@ -5,6 +5,7 @@
 ```
 /10 commits
 /10 style
++10 bonus points for embedding your images in the README.md
 ```
 
 ### Task1
