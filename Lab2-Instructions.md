@@ -42,6 +42,8 @@ In this task you will encrypt a simple image using different encryption modes an
 effectiveness of each mode.  A list of all the supported algorithms and modes are found in the
 `openssl` and `enc` man pages.
 
+![original image](./data/example_pic.bmp)
+
 Encrypt the `data/example_pic.bmp` file with the aes-128 algorithm using each of the following encryption modes 
 - `aes-128-cbc`, `aes-128-ecb`, and `aes-128-ofb` – total of 3 ciphertext files created.  Name the files `example_pic.cbc`, 
 `example_pic.ecb`, and `example_pic.ofb`.  Make up an easy to remember encryption password when 
@@ -70,6 +72,8 @@ cat data/bmp_header.hex ./example_pic.ofb > ofb.bmp
 
 Once you have done this with all three files open them in an image viewer and compare them to
 the original image and each other.  Write your finding in `README.md`
+
+**Bonus 10 points if you embed all three of your encrypted images in your `README.md`**
 
 ---
 

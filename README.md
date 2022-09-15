@@ -8,7 +8,7 @@
 
 ### Task 1 - Symmetric Encryption
 
-* Desribe each image
+* Desribe each image (bonus points for embedding them AND describing what you see)
   * *CBC*:
   * *ECB*:
   * *OFB*:
