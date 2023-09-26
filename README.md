@@ -1,4 +1,4 @@
-# Lab 2 : CEG 3400
+# Lab 3 : CEG 3400
 
 ### Encryption
 
