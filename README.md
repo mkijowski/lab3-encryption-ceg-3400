@@ -8,7 +8,7 @@
 
 ### Task 1 - Symmetric Encryption
 
-* Desribe each image (bonus points for embedding them AND describing what you see)
+* Embed and desribe (use your words) each image
   * *CBC*:
   * *ECB*:
   * *OFB*:
@@ -17,7 +17,7 @@
 
 ```bash
 please put any cool bash one-liners or other piped commands you
-learned/struggled with for task 3 here
+learned/struggled with for task here
 ```
 
 ---
@@ -30,7 +30,14 @@ learned/struggled with for task 3 here
 
 ---
 
-### Task 3 - Digital Signatures
+### Task 3 - Encrypted Email
+
+* What is the benefit to you for having set this up?  Please be verbose and dicuss what additional
+  protections having gpg encryption layerd into your email account provides.
+
+---
+
+### Task 4 - Digital Signatures
 
 * What key would a recipient need to verify your signature?
 * Why is it important that you not change the file after signing it?

@@ -1,14 +1,15 @@
-## Lab 2 : CEG 3400
+## Lab 3 : CEG 3400
 
 ### Encryption
 
 Table of contents:
-* [Background](Lab2-Instructions.md#background)
-* [Objectives](Lab2-Instructions.md#objectives)
-* [Preparation](Lab2-Instructions.md#preparation)
-* [Task 1: Symmetric Encryption](Lab2-Instructions.md#task-1---symmetric-encryption)
-* [Task 2: Asymmetric Encryption](Lab2-Instructions.md#task-2---asymmetric-encryption)
-* [Task 3: Digital Signatures](Lab2-Instructions.md#task-3---digital-signatures)
+* [Background](LAB3-INSTRUCTIONS.md#background)
+* [Objectives](LAB3-INSTRUCTIONS.md#objectives)
+* [Preparation](LAB3-INSTRUCTIONS.md#preparation)
+* [Task 1: Symmetric Encryption](LAB3-INSTRUCTIONS.md#task-1---symmetric-encryption)
+* [Task 2: Asymmetric Encryption](LAB3-INSTRUCTIONS.md#task-2---asymmetric-encryption)
+* [Task 3: Encrypted Email](LAB3-INSTRUCTIONS.md#task-3---encrypted-email)
+* [Task 4: Digital Signatures](LAB3-INSTRUCTIONS.md#task-4---digital-signatures)
 
 ---
 
@@ -73,14 +74,14 @@ cat data/bmp_header.hex ./example_pic.ofb > ofb.bmp
 Once you have done this with all three files open them in an image viewer and compare them to
 the original image and each other.  Write your finding in `README.md`
 
-**Bonus 10 points if you embed all three of your encrypted images in your `README.md`**
+**10 points of your grade are given simply for embedding all three encrypted images in your `README.md`**
 
 ---
 
 ### Task 2 - Asymmetric Encryption 
 
 This task is brand new this semester!  It's really simple, using the instructor's public
-key provided in class, encrypt this file (the `Lab2-Instructions.md` file.).
+key provided in class, encrypt this file (the `LAB3-INSTRUCTIONS.md` file.).
 
 Name this file `task2.enc`.  Answer all task 2 questions in the `README.md`.
 
@@ -90,9 +91,39 @@ full command so you can play around with `gpg`, you might need to use the `man` 
 
 ---
 
-### Task 3 - Digital Signatures
+### Task 3 - Encrypted Email
 
-For task 3 you will be applying a digital signature to your `README.md`.  This must be
+This task is very straightforward.  Send an encrypted email to matthew.kijowski@wright.edu from your campus email address.
+
+```email
+To: matthew.kijowski@wright.edu
+From: <youremail@wright.edu>
+
+Subject: Task 3 - Thunder
+
+Body: <whatever you would like, only I can read it>
+```
+
+* [Download Thunderbird](https://www.thunderbird.net/en-US/)
+* Add your Wright State email account to Thunderbird:
+  * IMAP settings
+    * Server name: `outlook.office365.com`
+    * Port: `993`
+    * Encryption method: `TLS`
+  * SMTP settings
+    * Servername: `smtp.office365.com`
+    * Port: `587`
+    * Encryption method: `STARTTLS`
+* In Thunderbird settings > End-To-End Encryption 
+  * Add your GPG secret key
+    * You can retrieve it from `gpg --export-secret-keys <youremail@wright.edu>`
+  * Open the `OpenPGP Key Manager` and import my public key (and anyone else's you want to have secure communications with)
+
+---
+
+### Task 4 - Digital Signatures
+
+For this task you will be applying a digital signature to your `README.md` (using the `gpg` command, not thunderbird).  This must be
 done AFTER you are done answering all questions (don't edit the `README.md` after signing)
 .  If you do need to edit `README.md` after you sign it, simply delete the signature at the end and re sign it.
 

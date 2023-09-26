@@ -1,32 +1,27 @@
-## Lab 2 rubric
-
-### Non task points
-
-```
-/10 commits
-/10 style
-+10 bonus points for embedding your images in the README.md
-```
-
 ### Task1
 
-```
-/15  3 encrypted files
-/10 description
-/10 infer and algorithm explanation
-```
+* 3 enc files (15) : 
+* description  (5) : 
+* explanation (10) : 
 
 ### Task2
 
-```
-/20 task2.enc
-/10 questions
-```
+* task2.enc (20) : 
+* questions (10) : 
 
 ### Task3
 
-```
-/20 digital signature
-/10 questions
-```
+* email (20) : 
+* ?     (10) : 
+
+### Task4
+
+* digital sig (20) : 
+* questions   (10) : 
+
+### Non task points
+
+* style (10) : 
+
+### ? / 130
 
