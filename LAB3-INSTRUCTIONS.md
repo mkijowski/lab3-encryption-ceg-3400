@@ -110,10 +110,12 @@ Body: <whatever you would like, only I can read it>
     * Server name: `outlook.office365.com`
     * Port: `993`
     * Encryption method: `TLS`
+    * Authentication method: `OAuth2`
   * SMTP settings
     * Servername: `smtp.office365.com`
     * Port: `587`
     * Encryption method: `STARTTLS`
+    * Authentication method: `OAuth2`
 * In Thunderbird settings > End-To-End Encryption 
   * Add your GPG secret key
     * You can retrieve it from `gpg --export-secret-keys <youremail@wright.edu>`
