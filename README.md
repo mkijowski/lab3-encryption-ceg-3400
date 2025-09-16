@@ -25,8 +25,8 @@ learned/struggled with for task here
 ### Task 2 - Asymmetric Encryption
 
 * List all of the people that should be able to decrypt `task2.enc`
-* What key should be used to encrypt this file so that the instructor can guarantee that
-  you encrypted it?
+* What key should be used to encrypting so that the instructor can guarantee that
+  *you* encrypted it?
 
 ---
 
@@ -41,5 +41,4 @@ learned/struggled with for task here
 
 * What key would a recipient need to verify your signature?
 * Why is it important that you not change the file after signing it?
-
 

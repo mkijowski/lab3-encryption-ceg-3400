@@ -80,10 +80,11 @@ the original image and each other.  Write your finding in `README.md`
 
 ### Task 2 - Asymmetric Encryption 
 
-This task is brand new this semester!  It's really simple, using the instructor's public
+It's really simple, using the instructor's public
 key provided in class, encrypt this file (the `LAB3-INSTRUCTIONS.md` file.).
 
-Name this file `task2.enc`.  Answer all task 2 questions in the `README.md`.
+Name this file `task2.enc` (you may need to use the `mv` command to rename it after creation) and upload `task2.enc` to your lab 3 github repository. 
+ Answer all task 2 questions in the `README.md`.
 
 Hints: To *encrypt* a message or file using `gpg` you need to specify a *recipient* email 
 address that you have the corresponding public key.  I am intentionally not giving the 
@@ -106,7 +107,8 @@ Body: <whatever you would like, only I can read it>
 
 * [Download Thunderbird](https://www.thunderbird.net/en-US/)
 * Add your Wright State email account to Thunderbird:
-  * IMAP settings
+* Thunderbird now recognizes your `@wright.edu` email and should take you to the WSU login page.  If not needed settings are below: 
+ * IMAP settings
     * Server name: `outlook.office365.com`
     * Port: `993`
     * Encryption method: `TLS`
@@ -116,10 +118,13 @@ Body: <whatever you would like, only I can read it>
     * Port: `587`
     * Encryption method: `STARTTLS`
     * Authentication method: `OAuth2`
-* In Thunderbird settings > End-To-End Encryption 
-  * Add your GPG secret key
-    * You can retrieve it from `gpg --export-secret-keys <youremail@wright.edu>`
-  * Open the `OpenPGP Key Manager` and import my public key (and anyone else's you want to have secure communications with)
+
+Once you can send and recieve mail in thunderbird using your `@wright.edu` email set up encryption:
+
+* In Thunderbird settings click on the account you want to set up (`@wright.edu`) > End-To-End Encryption 
+  * Add your GPG **secret key**
+    * You can retrieve it from `gpg --export-secret-keys <youremail@wright.edu> > your-secret-key.gpg`
+  * Open the `OpenPGP Key Manager` and import my **public key** (and anyone else's you want to have secure communications with)
 
 ---
 
